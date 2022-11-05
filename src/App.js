@@ -3,9 +3,7 @@ import BoardGame from "./components/board-game";
 
 const App = () => {
     return (
-        <>
-            <BoardGame />
-        </>
+        <BoardGame />
     );
 };
 
