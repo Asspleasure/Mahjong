@@ -50,3 +50,15 @@ export function parsingShuffles(arr) {
         }, []
     )
 }
+
+export function isSameCard(id, activeCards) {
+    return activeCards.length === 1 && id === activeCards[0];
+}
+
+export function isEqualIDSelectedCard (card, {firstCard, secondCard}) {
+    return card.id === firstCard.id || card.id === secondCard.id;
+}
+
+export function isEqualCards(first, second) {
+    return first.number === second.number;
+}

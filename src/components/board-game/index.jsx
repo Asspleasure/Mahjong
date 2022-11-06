@@ -3,7 +3,10 @@ import Card from "../card";
 import '../../styles/variables.css';
 import styles from './Board.module.css';
 import {constants} from 'shares/constants'
-import {parsingShuffles, createPrimeArray, shuffle} from "../../utils";
+import {
+    parsingShuffles, createPrimeArray, shuffle,
+    isSameCard, isEqualCards, isEqualIDSelectedCard
+} from "../../utils";
 
 function Board() {
     const [shuffleArr, setShuffleArr] = useState([]);
@@ -44,18 +47,6 @@ function Board() {
         }
     }, [activeCards.length]);
 
-    function isSameCard(id) {
-        return activeCards.length === 1 && id === activeCards[0];
-    }
-
-    function isEqualIDSelectedCard (card, {firstCard, secondCard}) {
-       return card.id === firstCard.id || card.id === secondCard.id;
-    }
-
-    function isEqualCards(first, second) {
-        return first.number === second.number;
-    }
-
     function closePair() {
         setShuffleArr((cards) => cards.map(
             (card) => activeCards.some((activeCard) => activeCard.id === card.id) ? ({...card, isVisible: false, stateCard: constants.IN_PROGRESS}) : card
@@ -73,7 +64,7 @@ function Board() {
 
     function handleClickCard(id) {
 
-        if (isSameCard(id)) {
+        if (isSameCard(id, activeCards)) {
             return;
         }
 
