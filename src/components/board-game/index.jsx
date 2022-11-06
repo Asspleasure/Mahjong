@@ -2,6 +2,7 @@ import React, {useEffect, useRef, useState} from 'react';
 import Card from "../card";
 import '../../styles/variables.css';
 import styles from './Board.module.css';
+import {constants} from 'shares/constants'
 import {parsingShuffles, createPrimeArray, shuffle} from "../../utils";
 
 function Board() {
@@ -31,7 +32,7 @@ function Board() {
         if (isEqualCards(firstCard, secondCard)) {
             setActiveCards(() => []);
             setShuffleArr((prevCards) => prevCards.map(
-                (item) => isEqualIDSelectedCard(item, {firstCard, secondCard}) ? ({...item, stateCard: 'INACTIVE'}) : item)
+                (item) => isEqualIDSelectedCard(item, {firstCard, secondCard}) ? ({...item, stateCard: constants.INACTIVE}) : item)
             );
         } else {
             closePairID.current = setTimeout(() => {
@@ -57,7 +58,7 @@ function Board() {
 
     function closePair() {
         setShuffleArr((cards) => cards.map(
-            (card) => activeCards.some((activeCard) => activeCard.id === card.id) ? ({...card, isVisible: false, stateCard: 'IN-PROGRESS'}) : card
+            (card) => activeCards.some((activeCard) => activeCard.id === card.id) ? ({...card, isVisible: false, stateCard: constants.IN_PROGRESS}) : card
             ));
         setActiveCards([]);
     }
@@ -93,11 +94,11 @@ function Board() {
             classes.push(styles.dontTouch);
         }
 
-        if(card.stateCard === 'IS-ACTIVE') {
+        if(card.stateCard === constants.IS_ACTIVE) {
             classes.push(styles.active)
         }
 
-        if(card.stateCard === 'INACTIVE') {
+        if(card.stateCard === constants.INACTIVE) {
             classes.push(styles.inactive)
         }
 

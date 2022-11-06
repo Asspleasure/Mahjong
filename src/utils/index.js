@@ -1,3 +1,4 @@
+import {constants} from 'shares/constants'
 export function isPrime(num) {
 
     for (let i = 2; i <= Math.sqrt(num); i++) {
@@ -42,7 +43,7 @@ export function parsingShuffles(arr) {
             id: index,
             isVisible: true,
             number: item,
-            stateCard: 'IN-PROGRESS'
+            stateCard: constants.IN_PROGRESS
         };
 
         return acum;
