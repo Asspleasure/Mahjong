@@ -2,7 +2,8 @@ import React, {useEffect, useRef, useState} from 'react';
 import Card from "../card";
 import '../../styles/variables.css';
 import styles from './Board.module.css';
-import {constants} from 'shares/constants'
+import {constants} from 'shares/constants';
+import classnames from "classnames"
 import {
     parsingShuffles, createPrimeArray, shuffle,
     isSameCard, isEqualCards, isEqualIDSelectedCard
@@ -79,21 +80,13 @@ function Board() {
     }
 
     function activeStylesCard (card) {
-        const classes = [];
+         const localStyles = classnames (
+            {[styles.dontTouch]:card.isVisible},
+            {[styles.active]:card.stateCard === constants.IS_ACTIVE},
+            {[styles.inactive]:card.stateCard === constants.INACTIVE},
+       )
 
-        if(card.isVisible) {
-            classes.push(styles.dontTouch);
-        }
-
-        if(card.stateCard === constants.IS_ACTIVE) {
-            classes.push(styles.active)
-        }
-
-        if(card.stateCard === constants.INACTIVE) {
-            classes.push(styles.inactive)
-        }
-
-        return classes;
+        return localStyles;
     }
 
     return (
@@ -102,7 +95,7 @@ function Board() {
             <ul className={`${styles.ul} ${styles.container}`}>
                 {shuffleArr.map((card) => (
                         <Card
-                            className={activeStylesCard(card).join(' ')}
+                            className={activeStylesCard(card)}
                             key={card.id}
                             card={card}
                             onClick={handleClickCard}
