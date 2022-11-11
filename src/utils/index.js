@@ -1,4 +1,5 @@
 import {constants} from 'shares/constants'
+
 export function isPrime(num) {
 
     for (let i = 2; i <= Math.sqrt(num); i++) {

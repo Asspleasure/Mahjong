@@ -1,5 +1,5 @@
 import styles from './Card.module.css'
-import classNames from "classnames";
+import classNames from 'classnames';
 
 const Card = (props) => {
     const {card, onClick, className} = props;

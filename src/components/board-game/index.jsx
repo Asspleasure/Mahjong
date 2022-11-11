@@ -1,9 +1,9 @@
 import React, {useEffect, useRef, useState} from 'react';
-import Card from "../card";
+import Card from '../card';
 import '../../styles/variables.css';
 import styles from './Board.module.css';
 import {constants} from 'shares/constants';
-import classnames from "classnames"
+import classNames from 'classnames';
 import {
     parsingShuffles, createPrimeArray, shuffle,
     isSameCard, isEqualCards, isEqualIDSelectedCard
@@ -80,7 +80,7 @@ function Board() {
     }
 
     function activeStylesCard (card) {
-         const localStyles = classnames (
+         const localStyles = classNames (
             {[styles.dontTouch]:card.isVisible},
             {[styles.active]:card.stateCard === constants.IS_ACTIVE},
             {[styles.inactive]:card.stateCard === constants.INACTIVE},
