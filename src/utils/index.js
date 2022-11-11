@@ -1,3 +1,5 @@
+import {constants} from 'shares/constants'
+
 export function isPrime(num) {
 
     for (let i = 2; i <= Math.sqrt(num); i++) {
@@ -42,10 +44,22 @@ export function parsingShuffles(arr) {
             id: index,
             isVisible: true,
             number: item,
-            stateCard: 'IN-PROGRESS'
+            stateCard: constants.IN_PROGRESS
         };
 
         return acum;
         }, []
     )
+}
+
+export function isSameCard(id, activeCards) {
+    return activeCards.length === 1 && id === activeCards[0];
+}
+
+export function isEqualIDSelectedCard (card, {firstCard, secondCard}) {
+    return card.id === firstCard.id || card.id === secondCard.id;
+}
+
+export function isEqualCards(first, second) {
+    return first.number === second.number;
 }
