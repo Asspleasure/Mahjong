@@ -1,7 +1,14 @@
 import styles from './Card.module.css'
 import classNames from 'classnames';
+import {ICard} from 'utils/interfaces/Card.interface';
 
-const Card = (props) => {
+type Props = {
+    card: ICard,
+    onClick: (id: number) => void,
+    className: string
+}
+
+const Card: React.FC<Props> = (props) => {
     const {card, onClick, className} = props;
 
     const classes = classNames(

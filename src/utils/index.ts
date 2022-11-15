@@ -1,6 +1,6 @@
-import {constants} from 'shares/constants'
+import {CARD_STATES} from 'shares/constants'
 
-export function isPrime(num) {
+export function isPrime(num:number) {
 
     for (let i = 2; i <= Math.sqrt(num); i++) {
         if (num % i === 0) {
@@ -11,8 +11,8 @@ export function isPrime(num) {
     return num > 1;
 }
 
-export function createPrimeArray(a, b) {
-    let arr = [];
+export function createPrimeArray(a:number, b:number) {
+    let arr:Array<number> = [];
 
     while (a !== b) {
         arr.push(a);
@@ -24,17 +24,17 @@ export function createPrimeArray(a, b) {
     return [...primeArr, ...primeArr];
 }
 
-export function shuffle(array) {
-    let currentIndex = array.length, randomIndex;
+export function shuffle(arr: number[]) {
+    let currentIndex = arr.length, randomIndex;
 
     while (currentIndex !== 0) {
         randomIndex = Math.floor(Math.random() * currentIndex);
         currentIndex--;
 
-        [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+        [arr[currentIndex], arr[randomIndex]] = [arr[randomIndex], arr[currentIndex]];
     }
 
-    return array;
+    return arr;
 }
 
 export function parsingShuffles(arr) {
@@ -44,7 +44,7 @@ export function parsingShuffles(arr) {
             id: index,
             isVisible: true,
             number: item,
-            stateCard: constants.IN_PROGRESS
+            stateCard: CARD_STATES.IN_PROGRESS
         };
 
         return acum;
@@ -52,7 +52,7 @@ export function parsingShuffles(arr) {
     )
 }
 
-export function isSameCard(id, activeCards) {
+export function isSameCard(id: number, activeCards) {
     return activeCards.length === 1 && id === activeCards[0];
 }
 
