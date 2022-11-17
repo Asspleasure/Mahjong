@@ -48,7 +48,7 @@ const Board: React.FC = () => {
             }, 1000);
 
             return () => {
-                if(closePairID.current !== null) {
+                if (closePairID.current !== null) {
                     return clearTimeout(closePairID.current);
                 }
             }
@@ -62,7 +62,7 @@ const Board: React.FC = () => {
         setActiveCards([]);
     }
 
-    function openCard(id:number, options) {
+    function openCard(id: number, options) {
         toggle(id, options);
     }
 
@@ -97,8 +97,6 @@ const Board: React.FC = () => {
 
         return localStyles;
     }
-
-    console.log(shuffleArr)
 
     return (
         <div className={styles.center}>

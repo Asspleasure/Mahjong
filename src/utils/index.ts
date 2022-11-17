@@ -1,6 +1,6 @@
 import {CARD_STATES} from 'shares/constants'
 
-export function isPrime(num:number) {
+export function isPrime(num: number) {
 
     for (let i = 2; i <= Math.sqrt(num); i++) {
         if (num % i === 0) {
@@ -11,8 +11,8 @@ export function isPrime(num:number) {
     return num > 1;
 }
 
-export function createPrimeArray(a:number, b:number) {
-    let arr:Array<number> = [];
+export function createPrimeArray(a: number, b: number) {
+    let arr: Array<number> = [];
 
     while (a !== b) {
         arr.push(a);

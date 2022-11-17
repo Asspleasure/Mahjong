@@ -1,5 +1,5 @@
 export const enum CARD_STATES {
     IS_ACTIVE= 'IS-ACTIVE',
-    INACTIVE ='INACTIVE',
+    INACTIVE = 'INACTIVE',
     IN_PROGRESS = 'IN-PROGRESS'
 }
