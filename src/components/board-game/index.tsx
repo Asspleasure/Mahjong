@@ -62,9 +62,7 @@ const Board: React.FC = () => {
         setActiveCards([]);
     }
 
-    function openCard(id: number, options) {
-        toggle(id, options);
-    }
+    const openCard = (id: number, options) => toggle(id, options);
 
     function toggle(id, { isVisible, stateCard }) {
         setShuffleArr(shuffleArr.map((item) => id === item.id ? ({...item, isVisible, stateCard}) : item));
